@@ -1,0 +1,24 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+button, a {
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}

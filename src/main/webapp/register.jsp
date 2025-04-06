@@ -17,6 +17,10 @@
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Register">
         </form>      
+        
+        <p style="text-align:center;">
+			 <a href="index.jsp">Back</a>
+		</p>
 </div>
 
 </body>

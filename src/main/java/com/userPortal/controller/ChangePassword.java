@@ -1,41 +1,45 @@
 package com.userPortal.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ChangePassword
- */
-@WebServlet("/ChangePassword")
-public class ChangePassword extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ChangePassword() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import com.userPortal.dao.UserDAO;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+
+
+@WebServlet("/changePassword")
+public class ChangePassword extends HttpServlet{
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException ,IOException{
+		
+		HttpSession session = request.getSession(false);
+		String email = (String) session.getAttribute("email");
+		String oldPassword = request.getParameter("oldPassword");
+		String newPassword =  request.getParameter("newPassword");
+		
+		if(email==null) {
+			response.sendRedirect("login.jsp");
+			return ;
+		}
+		
+		boolean success = UserDAO.changePassword(email, oldPassword,newPassword);
+		
+		if(success) {
+			request.setAttribute("message", "Password changed successfully!");
+		}else {
+			request.setAttribute("message", "Incorrect old Password");
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("change_password.jsp");
+		rd.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
