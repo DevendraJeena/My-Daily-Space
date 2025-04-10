@@ -1,4 +1,4 @@
-package util;
+package com.userPortal.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class DBUtil {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(
 					
-					"jdbc:mysql://localhost:3306/SessionAppDB",
+					"jdbc:mysql://localhost:3306/mydailyspace",
 					"root",
 					"Devendra@1234" 
 					);

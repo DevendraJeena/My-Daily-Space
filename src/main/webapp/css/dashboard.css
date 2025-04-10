@@ -1,24 +1,252 @@
 @charset "UTF-8";
+
+/* General Body Style with gradient background */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 100px;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f2f5f9 0%, #e6ecf2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* Main container with subtle border */
+#dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Header with gradient and animation */
+#dashboard-header {
+    background: linear-gradient(135deg, #673ab7 0%, #9c27b0 100%);
+    color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(103, 58, 183, 0.3);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+#dashboard-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    animation: shine 8s infinite linear;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+#dashboard-header h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#last-login {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    position: relative;
+}
+
+/* Navigation Bar with hover effects */
+#dashboard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+#dashboard-nav a {
+    background: linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%);
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(63, 81, 181, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+#dashboard-nav a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+#dashboard-nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(63, 81, 181, 0.3);
+}
+
+#dashboard-nav a:hover::before {
+    left: 100%;
+}
+
+/* Features Section with card hover effects */
+#dashboard-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* Feature Box with 3D effect */
+.feature-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    text-align: center;
+}
+
+.feature-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #2196f3, #e91e63);
+    transition: height 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-box:hover::after {
+    height: 8px;
+}
+
+.feature-box a {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-box a:hover {
+    color: #2196f3;
+}
+
+.feature-box i {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #673ab7;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover i {
+    transform: scale(1.2);
+}
+
+/* Enhanced input styles */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="submit"] {
-    padding: 10px;
-    margin: 10px;
-    width: 250px;
-    border-radius: 5px;
+input[type="password"] {
+    padding: 12px 15px;
+    margin: 12px 0;
+    width: 280px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-button, a {
-    padding: 10px 20px;
-    background-color: #e91e63;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #673ab7;
+    box-shadow: 0 0 0 3px rgba(103, 58, 183, 0.2);
+    outline: none;
+}
+
+/* Button and links styling with gradient */
+button, a.button-style {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #e91e63 0%, #ff5252 100%);
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover, a.button-style:hover {
+    background: linear-gradient(135deg, #c2185b 0%, #ff1744 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+}
+
+button:active, a.button-style:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #dashboard-container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    
+    #dashboard-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    #dashboard-nav {
+        gap: 10px;
+    }
+    
+    #dashboard-features {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }

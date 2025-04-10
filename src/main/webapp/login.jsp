@@ -9,32 +9,35 @@
 </head>
 <body>
 
-	<div class="container" >
-	
-		<h2 style="text-align:center;">Login</h2>
-			
+	<div class="container">
+		<h2>Login</h2>
+		
 		<form action="login" method="post">
-			<input type="email" name="email" placeholder="Email" required>
-			<input type="password" name="password" placeholder="Password" required>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" placeholder="Enter your email" required>
+			</div>
 			
-			<input type="submit" value="login" >
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" placeholder="Enter your password" required>
+			</div>
+			
+			<input type="submit" value="Login">
 		</form>
-	
+
 		<%
 			String error = request.getParameter("error");
-			if("true".equals(error)){		
+			if ("true".equals(error)) {
 		%>
-			<p style = "color:red; text-align:center;">Invalid email or password</p>
-					
-		<% 
+			<p style="color: red; text-align: center;">Invalid email or password</p>
+		<%
 			}
 		%>
-		
-		<p style="text-align:center;">
+
+		<p style="text-align: center;">
 			Don't have an account? <a href="register.jsp">Register</a>
 		</p>
-	
-	
 	</div>
 
 </body>

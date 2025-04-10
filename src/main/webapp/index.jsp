@@ -3,15 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
- <title>Welcome to Session App</title>
- <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <title>MY DAILY SPACE</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
-<body style="text-align: center;">
-    <h1>Welcome to the Session-Based App</h1>
-     <nav>
-        <a href="register.jsp">Register</a>
-        <a href="login.jsp">Login</a>
-    </nav>
+<body>
+
+    <div class="container">
+        <h1>MY DAILY SPACE</h1>
+        <p>Your personal space for managing notes, goals, mood, and more.</p>
+
+        <nav class="nav-links">
+            <a href="register.jsp">Register</a>
+            <a href="login.jsp">Login</a>
+        </nav>
+    </div>
+
 </body>
 </html>
