@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, com.userPortal.model.Reminder" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
     String userEmail = (String) session.getAttribute("email");
@@ -8,8 +7,6 @@
         response.sendRedirect("login.jsp");
         return;
     }
-
-    List<Reminder> reminders = (List<Reminder>) request.getAttribute("reminders");
 %>
 
 <!DOCTYPE html>
@@ -24,11 +21,12 @@
     <h2>My Reminders</h2>
 
     <!-- Message display -->
-    <% if (request.getAttribute("message") != null) { %>
-        <p class="success"><%= request.getAttribute("message") %></p>
-    <% } else if (request.getAttribute("error") != null) { %>
-        <p class="error"><%= request.getAttribute("error") %></p>
-    <% } %>
+    <c:if test="${not empty message}">
+        <p class="success">${message}</p>
+    </c:if>
+    <c:if test="${not empty error}">
+        <p class="error">${error}</p>
+    </c:if>
 
     <!-- Reminder Form -->
     <section class="form-section">
@@ -54,35 +52,31 @@
     <section class="reminders-section">
         <h3>Your Upcoming Reminders</h3>
 
-        <%
-            if (reminders != null && !reminders.isEmpty()) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                for (Reminder rem : reminders) {
-                    String formattedReminderTime = rem.getReminderTime().format(formatter);
-                    String formattedCreatedAt = rem.getCreatedAt().format(formatter);
-        %>
+        <c:choose>
+            <c:when test="${not empty reminders}">
+                <c:forEach var="rem" items="${reminders}">
+                    <div class="reminder-card">
+                        <h4>${rem.title}</h4>
+                        <p>${rem.description}</p>
+                        <small>
+                            Reminder Time: ${rem.formattedReminderTime}
+                        </small><br>
+                        <small>
+                            Created At: ${rem.formattedCreatedAt}
+                        </small>
 
-        <div class="reminder-card">
-            <h4><%= rem.getTitle() %></h4>
-            <p><%= rem.getDescription() %></p>
-            <small>Reminder Time: <%= formattedReminderTime %></small><br>
-            <small>Created At: <%= formattedCreatedAt %></small>
-
-            <form action="reminder" method="post" style="margin-top: 10px;">
-                <input type="hidden" name="action" value="delete">
-                <input type="hidden" name="id" value="<%= rem.getId() %>">
-                <button type="submit" class="delete-btn">Delete</button>
-            </form>
-        </div>
-
-        <%
-                }
-            } else {
-        %>
-            <p>No reminders yet. Add one above!</p>
-        <%
-            }
-        %>
+                        <form action="reminder" method="post" style="margin-top: 10px;">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="${rem.id}">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p>No reminders yet. Add one above!</p>
+            </c:otherwise>
+        </c:choose>
     </section>
 
     <!-- Navigation -->

@@ -10,6 +10,8 @@ public class Reminder {
     private String description;
     private LocalDateTime reminderTime;
     private LocalDateTime createdAt;
+    private String formattedReminderTime;  // New field for formatted reminder time
+    private String formattedCreatedAt;     // New field for formatted created time
 
     // Default constructor
     public Reminder() {}
@@ -32,7 +34,7 @@ public class Reminder {
         this.reminderTime = reminderTime;
     }
 
-    // Getters and Setters
+    // Getters and Setters for original fields
     public int getId() {
         return id;
     }
@@ -79,5 +81,22 @@ public class Reminder {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    // Getters and Setters for formatted date fields
+    public String getFormattedReminderTime() {
+        return formattedReminderTime;
+    }
+
+    public void setFormattedReminderTime(String formattedReminderTime) {
+        this.formattedReminderTime = formattedReminderTime;
+    }
+
+    public String getFormattedCreatedAt() {
+        return formattedCreatedAt;
+    }
+
+    public void setFormattedCreatedAt(String formattedCreatedAt) {
+        this.formattedCreatedAt = formattedCreatedAt;
     }
 }

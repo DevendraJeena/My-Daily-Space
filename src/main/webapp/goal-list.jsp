@@ -18,7 +18,12 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>My Goals</h2>
-            <a href="goals?action=new" class="btn btn-primary">+ Add New Goal</a>
+            <div>
+	            <a href="dashboard.jsp" class="btn btn-outline-secondary me-2">
+	                <i class="bi bi-house-door"></i> Home
+	            </a>
+	            <a href="goals?action=new" class="btn btn-primary">+ Add New Goal</a>
+       		 </div>
         </div>
 
         <div class="row">

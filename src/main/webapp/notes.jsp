@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, com.userPortal.dao.NotesDAO, com.userPortal.model.Notes" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
     String userEmail = (String) session.getAttribute("email");
-    if(userEmail == null){
+    if (userEmail == null) {
         response.sendRedirect("login.jsp");
         return;
     }
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,19 +21,13 @@
 <div class="container">
     <h2>My Notes</h2>
 
-    <%
-        String msg = (String) request.getAttribute("message");
-        String error = (String) request.getAttribute("error");
-        if(msg != null){
-    %>
-        <p class="success"><%= msg %></p>
-    <%
-        } else if(error != null){
-    %>
-        <p class="error"><%= error %></p>
-    <%
-        }
-    %>
+    <c:if test="${not empty message}">
+        <p class="success">${message}</p>
+    </c:if>
+
+    <c:if test="${not empty error}">
+        <p class="error">${error}</p>
+    </c:if>
 
     <!-- Add Note Form -->
     <form action="note" method="post">
@@ -53,38 +47,32 @@
     <!-- Notes List -->
     <div class="notes-list">
         <h3>Your Saved Notes</h3>
-        <%
-            NotesDAO dao = new NotesDAO();
-            List<Notes> notes = dao.getNotesByUser(userEmail);
-            if (notes != null && !notes.isEmpty()) {
-                for (Notes note : notes) {
-        %>
-            <div class="note-card">
-			    <h4><%= note.getTitle() %></h4>
-			    <p><%= note.getContent() %></p>
-			    <small>Created on: <%= note.getCreatedAt() %></small>
-			    
-  	  <div class="note-card-footer">
-        <form action="note" method="post">
-            <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="id" value="<%= note.getId() %>">
-            <input type="submit" value="Delete" class="delete-btn">
-        </form>
-    </div>
-</div>
 
-        <%
-                }
-            } else {
-        %>
-            <p>No notes yet. Start by adding one above!</p>
-        <%
-            }
-        %>
+        <c:choose>
+            <c:when test="${not empty notes}">
+                <c:forEach var="note" items="${notes}">
+                    <div class="note-card">
+                        <h4>${note.title}</h4>
+                        <p>${note.content}</p>
+                        <small>Created on: ${note.createdAt}</small>
+
+                        <div class="note-card-footer">
+                            <form action="note" method="post">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="id" value="${note.id}">
+                                <input type="submit" value="Delete" class="delete-btn">
+                            </form>
+                        </div>
+                    </div>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <p>No notes yet. Start by adding one above!</p>
+            </c:otherwise>
+        </c:choose>
     </div>
 
     <p style="margin-top: 20px;"><a href="dashboard.jsp">Back to Dashboard</a></p>
-
 </div>
 </body>
 </html>

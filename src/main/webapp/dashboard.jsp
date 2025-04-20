@@ -47,55 +47,58 @@
             </div>
             <nav class="d-flex gap-3">
                 <a href="change_password.jsp" class="btn btn-outline-primary">Change Password</a>
-                <a href="update_profile.jsp" class="btn btn-outline-secondary">Update Profile</a>
+                <a href="update_profile.jsp" class="btn btn-outline-primary">Update Profile</a>
                 <a href="logout" class="btn btn-danger">Logout</a>
             </nav>
         </header>
         
         <!-- Feature Boxes -->
-        <section id="dashboard-features" class="mb-5">
-            <div class="feature-box card h-100">
-                <a href="notes.jsp" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">📝 My Notes</h3>
-                    <p class="card-text">Create and manage your personal notes</p>
-                </a>
-            </div>
-            
-            <div class="feature-box card h-100">
-                <a href="reminder" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">⏰ Reminders</h3>
-                    <p class="card-text">Set important reminders</p>
-                </a>
-            </div>
-            
-            <div class="feature-box card h-100">
-                <a href="expense" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">💰 Expense Manager</h3>
-                    <p class="card-text">Track your spending</p>
-                </a>
-            </div>
-            
-            <div class="feature-box card h-100">
-                <a href="goals?action=list" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">🎯 Goal Tracker</h3>
-                    <p class="card-text">Manage your personal goals</p>
-                </a>
-            </div>
-            
-            <div class="feature-box card h-100">
-                <a href="upload_file.jsp" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">📁 File Upload</h3>
-                    <p class="card-text">Store your important files</p>
-                </a>
-            </div>
-            
-            <div class="feature-box card h-100">
-                <a href="todo" class="card-body d-flex flex-column text-decoration-none text-dark">
-                    <h3 class="card-title">✅ To-Do List</h3>
-                    <p class="card-text">Manage daily tasks</p>
-                </a>
-            </div>
-        </section>
+        <section id="dashboard-features" class="dashboard-features mb-5">
+  
+		  <div class="feature-box card h-100">
+		    <a href="note" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">📝 My Notes</h3>
+		      <p class="card-text">Create and manage your personal notes</p>
+		    </a>
+		  </div>
+		
+		  <div class="feature-box card h-100">
+		    <a href="reminder" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">⏰ Reminders</h3>
+		      <p class="card-text">Set important reminders</p>
+		    </a>
+		  </div>
+		
+		  <div class="feature-box card h-100">
+		    <a href="transactions" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">💰 Expense Manager</h3>
+		      <p class="card-text">Track your spending</p>
+		    </a>
+		  </div>
+		
+		  <div class="feature-box card h-100">
+		    <a href="goals?action=list" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">🎯 Goal Tracker</h3>
+		      <p class="card-text">Manage your personal goals</p>
+		    </a>
+		  </div>
+		
+		  <div class="feature-box card h-100">
+		    <a href="file-upload.jsp" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">📁 File Upload</h3>
+		      <p class="card-text">Store your important files</p>
+		    </a>
+		  </div>
+		
+		  <div class="feature-box card h-100">
+		    <a href="todo" class="card-body d-flex flex-column text-decoration-none text-dark">
+		      <h3 class="card-title">✅ To-Do List</h3>
+		      <p class="card-text">Manage daily tasks</p>
+		    </a>
+		  </div>
+		
+		</section>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

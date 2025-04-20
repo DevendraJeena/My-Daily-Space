@@ -57,7 +57,7 @@ public class TodoServlet extends HttpServlet {
         } else {
             request.getSession().setAttribute("error", "Failed to add task.");
         }
-        response.sendRedirect("todos.jsp");
+        response.sendRedirect("todo");
     }
 
     private void updateStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -71,7 +71,7 @@ public class TodoServlet extends HttpServlet {
         } else {
             request.getSession().setAttribute("error", "Failed to update status.");
         }
-        response.sendRedirect("todos.jsp");
+        response.sendRedirect("todo");
     }
 
     private void deleteTodo(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -83,7 +83,7 @@ public class TodoServlet extends HttpServlet {
         } else {
             request.getSession().setAttribute("error", "Failed to delete task.");
         }
-        response.sendRedirect("todos.jsp");
+        response.sendRedirect("todo");
     }
 
     @Override

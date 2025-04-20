@@ -2,6 +2,7 @@ package com.userPortal.controller;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,9 +41,9 @@ public class NotesServlet extends HttpServlet {
             boolean success = dao.addNote(note);
 
             if (success) {
-                request.setAttribute("message", "Note added successfully!");
+                session.setAttribute("message", "Note added successfully!");
             } else {
-                request.setAttribute("error", "Something went wrong while adding the note.");
+                session.setAttribute("error", "Something went wrong while adding the note.");
             }
 
         } else if ("delete".equalsIgnoreCase(action)) {
@@ -51,13 +52,46 @@ public class NotesServlet extends HttpServlet {
                 boolean deleted = dao.deleteNote(id);
 
                 if (deleted) {
-                    request.setAttribute("message", "Note deleted successfully.");
+                    session.setAttribute("message", "Note deleted successfully.");
                 } else {
-                    request.setAttribute("error", "Failed to delete the note.");
+                    session.setAttribute("error", "Failed to delete the note.");
                 }
             } catch (NumberFormatException e) {
-                request.setAttribute("error", "Invalid note ID.");
+                session.setAttribute("error", "Invalid note ID.");
             }
+        }
+
+        response.sendRedirect("note"); // Redirect to GET method
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        HttpSession session = request.getSession(false);
+        String userEmail = (String) session.getAttribute("email");
+
+        if (userEmail == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
+        NotesDAO dao = new NotesDAO();
+        List<Notes> notes = dao.getNotesByUser(userEmail);
+
+        request.setAttribute("notes", notes);
+
+        // Pass session messages to request and remove from session
+        String msg = (String) session.getAttribute("message");
+        String error = (String) session.getAttribute("error");
+
+        if (msg != null) {
+            request.setAttribute("message", msg);
+            session.removeAttribute("message");
+        }
+
+        if (error != null) {
+            request.setAttribute("error", error);
+            session.removeAttribute("error");
         }
 
         request.getRequestDispatcher("notes.jsp").forward(request, response);

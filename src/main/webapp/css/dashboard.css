@@ -16,9 +16,8 @@
 /* Modern Body Background */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: 
-    linear-gradient(rgba(248, 249, 252, 0.9), rgba(248, 249, 252, 0.9)),
-    url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1800&q=80') center/cover fixed no-repeat;
+ background: linear-gradient(#fff3cdde, #0a58ca29), url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1800&q=80) center / cover fixed no-repeat;
+
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -28,9 +27,6 @@ body {
 
 /* Professional Header Background */
 .dashboard-header {
-  background: 
-    linear-gradient(var(--header-overlay), var(--header-overlay)),
-    url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
   color: var(--white);
   padding: 2rem 0;
   margin-bottom: 2rem;
@@ -42,18 +38,26 @@ body {
 .welcome-box {
   position: relative;
   z-index: 2;
+  text-align: center;
+  margin-top:20px ; 
 }
 
 .welcome-box h2 {
+  font-family: 'Poppins', sans-serif; /* Changed font */
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
+  text-align: center; /* Center align */
+  margin-left: 500px ;
+  
 }
+
 
 #last-login {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
+  margin-left: 500px ;
 }
 
 /* Main Content Area */
@@ -64,7 +68,7 @@ body {
   margin: -3rem auto 2rem;
   padding: 2rem;
   position: relative;
-  width: 95%;
+  width: 90%;
   max-width: 1400px;
 }
 

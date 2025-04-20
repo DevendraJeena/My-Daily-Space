@@ -16,6 +16,7 @@ import com.userPortal.model.Reminder;
 public class ReminderServlet extends HttpServlet {
 
     private ReminderDAO dao;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     @Override
     public void init() throws ServletException {
@@ -41,8 +42,8 @@ public class ReminderServlet extends HttpServlet {
                 String description = request.getParameter("description");
                 String timeString = request.getParameter("reminder_time");
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-                LocalDateTime reminderTime = LocalDateTime.parse(timeString, formatter);
+                DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+                LocalDateTime reminderTime = LocalDateTime.parse(timeString, inputFormatter);
 
                 Reminder reminder = new Reminder(userEmail, title, description, reminderTime);
                 reminder.setCreatedAt(LocalDateTime.now());
@@ -50,7 +51,6 @@ public class ReminderServlet extends HttpServlet {
                 boolean success = dao.addReminder(reminder);
                 request.setAttribute(success ? "message" : "error",
                         success ? "Reminder added successfully." : "Failed to add reminder.");
-
             } else if ("delete".equals(action)) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 boolean deleted = dao.deleteReminder(id);
@@ -63,13 +63,20 @@ public class ReminderServlet extends HttpServlet {
         }
 
         List<Reminder> reminders = dao.getReminderByUser(userEmail);
-        request.setAttribute("reminders", reminders);
+        // Set formatted date strings for JSTL display
+        for (Reminder r : reminders) {
+            r.setFormattedReminderTime(r.getReminderTime().format(formatter));
+            r.setFormattedCreatedAt(r.getCreatedAt().format(formatter));
+        }
 
+        request.setAttribute("reminders", reminders);
         request.getRequestDispatcher("reminders.jsp").forward(request, response);
     }
-    
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         HttpSession session = request.getSession();
         String userEmail = (String) session.getAttribute("email");
 
@@ -78,11 +85,13 @@ public class ReminderServlet extends HttpServlet {
             return;
         }
 
-        ReminderDAO dao = new ReminderDAO();
         List<Reminder> reminders = dao.getReminderByUser(userEmail);
-        request.setAttribute("reminders", reminders);
+        for (Reminder r : reminders) {
+            r.setFormattedReminderTime(r.getReminderTime().format(formatter));
+            r.setFormattedCreatedAt(r.getCreatedAt().format(formatter));
+        }
 
+        request.setAttribute("reminders", reminders);
         request.getRequestDispatcher("reminders.jsp").forward(request, response);
     }
-
 }
