@@ -93,10 +93,10 @@ MyDailySpace/
 Here are some screenshots of the My Daily Space application in action:
 
 🔐 Login Page
-![Login](preview/login.png)
+![Login](Preview/login.png)
 
 🏠 Dashboard
-![Home](preview/home.png)
+![Home](Preview/home.png)
 
 📝 Notes Section
 ![Notes](Preview/notes.png)
