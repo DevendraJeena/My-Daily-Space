@@ -7,13 +7,13 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-## 🚀 Features
+##  Features
 
-✅ **User Authentication**
+ **User Authentication**
 
 * User registration and login with password authentication.
 
-✅ **Notes Module**
+ **Notes Module**
 
 * **Add, view, and delete notes.**
 * **Export Notes to PDF:**
@@ -23,7 +23,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
   * Download **all notes at once in a PDF**
     
 
- ✅ **Reminders**
+  **Reminders**
 
 * Set short reminders for future tasks.
 * The application shows:
@@ -32,7 +32,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
   * **Whether deadline has gone or not**
     
 
-✅ **Goals Module**
+ **Goals Module**
 
 * Set goals with:
 
@@ -41,19 +41,19 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
   * **Deadline:** track deadline for each goal
     
 
-✅ **To-Do List**
+ **To-Do List**
 
 * Add, view, and delete tasks.
 * Set task **status:** Pending, Completed, or In Progress
 
 
 
-✅ **File Upload**
+ **File Upload**
 
 * **Support for any file format (PDF, images, documents)**
 * File can be downloaded or viewed later directly from the application.
 
-✅ **Expense Manager**
+ **Expense Manager**
 
 * Keep a record of expenses.
 * Filter transactions by criteria.
@@ -63,7 +63,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 * **Front-end:** JSP, HTML, CSS, Bootstrap
 * **Back-end:** Servlets, JDBC, MVC architecture
@@ -74,7 +74,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-## 🟣 Project Structure (MVC)
+##  Project Structure (MVC)
 
 ```
 MyDailySpace/
@@ -92,39 +92,39 @@ MyDailySpace/
 🖼 PREVIEW
 Here are some screenshots of the My Daily Space application in action:
 
-🔐 Login Page
+ Login Page
 ![Login](Preview/login.png)
 
-🏠 Dashboard
+ Dashboard
 ![Home](Preview/home.png)
 
-📝 Notes Section
+ Notes Section
 ![Notes](Preview/notes.png)
 ![Download Notes](Preview/DownloadNotes.png)
 
-🔔 Reminders Section
+ Reminders Section
 ![Reminders](Preview/reminder.png)
 ![Add Reminder](Preview/addReminder.png)
 
-💸 Expense Manager Section
+ Expense Manager Section
 ![Expenses](Preview/expenses.png)
 ![Expenses List](Preview/expensesList.png)
 ![Add Expense](Preview/addExpense.png)
 ![Download Expenses](Preview/DownloadExpense.png)
 
-🥅 Goals Section
+ Goals Section
 ![Goals](Preview/goals.png)
 ![Add Goals](Preview/addGoals.png)
 
-✅ To-Do List Section
+ To-Do List Section
 ![To-Do-List](Preview/to-do-list.png)
 
-📁 File Upload Section
+ File Upload Section
 ![Upload File](Preview/fileUpload.png)
 ![View Files](Preview/viewFiles.png)
 
 
-## 📝 Notes
+##  Notes
 
 * The application performs **CRUD operations** on all modules.
 * User sessions are maintained upon login and destroyed upon logout.
