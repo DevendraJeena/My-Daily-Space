@@ -99,29 +99,29 @@ Here are some screenshots of the My Daily Space application in action:
 ![Home](preview/home.png)
 
 📝 Notes Section
-![Notes](preview/notes.png)
-![Download Notes](preview/DownloadNotes.png)
+![Notes](Preview/notes.png)
+![Download Notes](Preview/DownloadNotes.png)
 
 🔔 Reminders Section
-![Reminders](preview/reminder.png)
-![Add Reminder](preview/addReminder.png)
+![Reminders](Preview/reminder.png)
+![Add Reminder](Preview/addReminder.png)
 
 💸 Expense Manager Section
-![Expenses](preview/expenses.png)
-![Expenses List](preview/expensesList.png)
-![Add Expense](preview/addExpense.png)
-![Download Expenses](preview/DownloadExpense.png)
+![Expenses](Preview/expenses.png)
+![Expenses List](Preview/expensesList.png)
+![Add Expense](Preview/addExpense.png)
+![Download Expenses](Preview/DownloadExpense.png)
 
 🥅 Goals Section
-![Goals](preview/goals.png)
-![Add Goals](preview/addGoals.png)
+![Goals](Preview/goals.png)
+![Add Goals](Preview/addGoals.png)
 
 ✅ To-Do List Section
-![To-Do-List](preview/to-do-list.png)
+![To-Do-List](Preview/to-do-list.png)
 
 📁 File Upload Section
-![Upload File](preview/fileUpload.png)
-![View Files](preview/viewFiles.png)
+![Upload File](Preview/fileUpload.png)
+![View Files](Preview/viewFiles.png)
 
 
 ## 📝 Notes
