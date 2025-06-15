@@ -3,6 +3,7 @@ package com.userPortal.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,29 @@ public class NotesDAO {
 			}
 		
 		return notesList;
+	}
+	
+	public Notes getNoteById(int noteId, String userEmail) {
+	    String sql = "SELECT * FROM notes WHERE id = ? AND user_email = ?";
+	    try (Connection conn = DBUtil.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+	        
+	        stmt.setInt(1, noteId);
+	        stmt.setString(2, userEmail);
+	        
+	        try (ResultSet rs = stmt.executeQuery()) {
+	            if (rs.next()) {
+	                Notes note = new Notes();
+	                note.setId(rs.getInt("id"));
+	                note.setTitle(rs.getString("title"));
+	                note.setContent(rs.getString("content"));
+	                return note;
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
 	}
 	
 	public boolean deleteNote(int id) {

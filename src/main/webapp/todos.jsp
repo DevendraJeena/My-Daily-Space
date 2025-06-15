@@ -30,10 +30,10 @@
             <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
         </select>
+        
         <button type="submit">Add Task</button>
-        <a href="dashboard.jsp" class="btn btn-outline-secondary me-2">
-            <i class="bi bi-house-door"></i> Home
-        </a>
+        <button onclick="window.location.href='dashboard.jsp'" class="btn btn-outline-secondary me-2">Home
+	    </button>
     </form>
 
     <table class="todo-table">

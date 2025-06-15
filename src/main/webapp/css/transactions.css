@@ -84,3 +84,25 @@ optgroup[label="Expense"].expense-options {
         width: 100%;
     }
 }
+
+/* Excel Export Button */
+.btn-excel {
+    background-color: #1d6f42;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.btn-excel:hover {
+    background-color: #165732;
+    color: white;
+}
+
+.fa-file-excel {
+    margin-right: 5px;
+}

@@ -18,6 +18,9 @@
 		<header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
 		    <h1 class="h4">Transaction Manager</h1>
 		    <div>
+		    	<a href="ExportTransactionsServlet" class="btn btn-excel">
+				    <i class="fas fa-file-excel"></i> Export to Excel
+				</a>
 		        <a href="dashboard.jsp" class="btn btn-outline-secondary me-2">
 		            <i class="bi bi-house-door"></i> Home
 		        </a>

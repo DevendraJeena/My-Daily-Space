@@ -49,6 +49,8 @@
                     </div>
                     <div class="card-footer text-center">
                         <a href="${pageContext.request.contextPath}/files" class="btn btn-outline-secondary">View My Files</a>
+                        <button onclick="window.location.href='dashboard.jsp'" class="btn btn-outline-secondary me-2"> Home
+						</button>
                     </div>
                 </div>
             </div>

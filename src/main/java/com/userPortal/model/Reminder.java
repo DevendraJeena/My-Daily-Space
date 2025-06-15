@@ -12,7 +12,9 @@ public class Reminder {
     private LocalDateTime createdAt;
     private String formattedReminderTime;  // New field for formatted reminder time
     private String formattedCreatedAt;     // New field for formatted created time
-
+	private String timeRemaining;
+	private String timeStatus;
+    
     // Default constructor
     public Reminder() {}
 
@@ -48,7 +50,7 @@ public class Reminder {
     }
 
     public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+        this.userEmail = userEmail.toLowerCase();
     }
 
     public String getTitle() {
@@ -72,6 +74,9 @@ public class Reminder {
     }
 
     public void setReminderTime(LocalDateTime reminderTime) {
+        if (reminderTime == null) {
+            throw new IllegalArgumentException("Reminder time cannot be null");
+        }
         this.reminderTime = reminderTime;
     }
 
@@ -99,4 +104,20 @@ public class Reminder {
     public void setFormattedCreatedAt(String formattedCreatedAt) {
         this.formattedCreatedAt = formattedCreatedAt;
     }
+    
+    public String getTimeRemaining() {
+		return timeRemaining;
+	}
+
+	public void setTimeRemaining(String timeRemaining) {
+		this.timeRemaining = timeRemaining;
+	}
+	
+	public String getTimeStatus() {
+	    return timeStatus;
+	}
+
+	public void setTimeStatus(String timeStatus) {
+	    this.timeStatus = timeStatus;
+	}
 }

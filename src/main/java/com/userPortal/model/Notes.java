@@ -9,7 +9,7 @@ public class Notes {
 	private String userEmail ;
 	private String title ;
 	private String content;
-	private Timestamp createdAt ;
+	private Timestamp createdAt ; 
 	
 	 public Notes() {
 	    }

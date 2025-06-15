@@ -70,7 +70,7 @@ public class TransactionDAO {
             sql.append(" AND title LIKE ?");
             params.add("%" + keyword + "%");
         }
-        sql.append(" ORDER BY date DESC");
+        sql.append(" ORDER BY date DESC, id ASC");
 
         try (PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
             for (int i = 0; i < params.size(); i++) {

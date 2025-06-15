@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
@@ -15,97 +14,81 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Daily Space - Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-    <style>
-        /* Add these styles to your dashboard.css */
-        .feature-box {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        #dashboard-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>My Daily Space - Dashboard</title>
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Header with Welcome Message -->
-        <header class="d-flex justify-content-between align-items-center py-3 mb-4 border-bottom">
-            <div class="welcome-box">
-                <h2>Welcome, <%= email %>!</h2>
-                <p id="last-login" class="text-muted">Last login: <!-- Add time dynamically --></p>
-            </div>
-            <nav class="d-flex gap-3">
-                <a href="change_password.jsp" class="btn btn-outline-primary">Change Password</a>
-                <a href="update_profile.jsp" class="btn btn-outline-primary">Update Profile</a>
-                <a href="logout" class="btn btn-danger">Logout</a>
-            </nav>
-        </header>
-        
-        <!-- Feature Boxes -->
-        <section id="dashboard-features" class="dashboard-features mb-5">
-  
-		  <div class="feature-box card h-100">
-		    <a href="note" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">📝 My Notes</h3>
-		      <p class="card-text">Create and manage your personal notes</p>
-		    </a>
-		  </div>
-		
-		  <div class="feature-box card h-100">
-		    <a href="reminder" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">⏰ Reminders</h3>
-		      <p class="card-text">Set important reminders</p>
-		    </a>
-		  </div>
-		
-		  <div class="feature-box card h-100">
-		    <a href="transactions" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">💰 Expense Manager</h3>
-		      <p class="card-text">Track your spending</p>
-		    </a>
-		  </div>
-		
-		  <div class="feature-box card h-100">
-		    <a href="goals?action=list" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">🎯 Goal Tracker</h3>
-		      <p class="card-text">Manage your personal goals</p>
-		    </a>
-		  </div>
-		
-		  <div class="feature-box card h-100">
-		    <a href="file-upload.jsp" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">📁 File Upload</h3>
-		      <p class="card-text">Store your important files</p>
-		    </a>
-		  </div>
-		
-		  <div class="feature-box card h-100">
-		    <a href="todo" class="card-body d-flex flex-column text-decoration-none text-dark">
-		      <h3 class="card-title">✅ To-Do List</h3>
-		      <p class="card-text">Manage daily tasks</p>
-		    </a>
-		  </div>
-		
-		</section>
 
+    <header class="dashboard-header">
+        <div class="welcome-box">
+            <h2>Welcome, <%= email %>!</h2>
+            <p id="last-login" class="text-muted">Last login: </p>
+        </div>
+        <nav class="header-nav">
+            <a href="change_password.jsp" class="btn btn-outline-light">Change Password</a>
+            <a href="update_profile.jsp" class="btn btn-outline-light">Update Profile</a>
+            <a href="logout" class="btn btn-danger">Logout</a>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <section id="dashboard-features" class="dashboard-grid">
+  
+            <div class="feature-card">
+              <a href="note" class="card-body">
+                <h3>📝 My Notes</h3>
+                <p>Create and manage your personal notes</p>
+              </a>
+            </div>
+
+            <div class="feature-card">
+              <a href="reminder" class="card-body">
+                <h3>⏰ Reminders</h3>
+                <p>Set important reminders</p>
+              </a>
+            </div>
+
+            <div class="feature-card">
+              <a href="transactions" class="card-body">
+                <h3>💰 Expense Manager</h3>
+                <p>Track your spending</p>
+              </a>
+            </div>
+
+            <div class="feature-card">
+              <a href="goals?action=list" class="card-body">
+                <h3>🎯 Goal Tracker</h3>
+                <p>Manage your goals</p>
+              </a>
+            </div>
+
+            <div class="feature-card">
+              <a href="file-upload.jsp" class="card-body">
+                <h3>📁 File Upload</h3>
+                <p>Store your files safely</p>
+              </a>
+            </div>
+
+            <div class="feature-card">
+              <a href="todo" class="card-body">
+                <h3>✅ To-Do List</h3>
+                <p>Manage daily tasks</p>
+              </a>
+            </div>
+
+        </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Add last login time
-        document.getElementById('last-login').textContent = 'Last login: ' + 
-            new Date().toLocaleString();
+        document.getElementById('last-login').textContent = 
+          'Last login: ' + new Date().toLocaleString();
     </script>
+    
+	
 </body>
 </html>
