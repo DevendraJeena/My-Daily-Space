@@ -12,7 +12,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
  **User Authentication**
 
 * User registration and login with password authentication.
-
+  
  **Notes Module**
 
 * **Add, view, and delete notes.**
@@ -22,8 +22,8 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
   * Combine **multiple notes into a single PDF**
   * Download **all notes at once in a PDF**
     
-
-  **Reminders**
+    
+**Reminders**
 
 * Set short reminders for future tasks.
 * The application shows:
@@ -74,7 +74,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-##  Project Structure (MVC)
+## Project Structure (MVC)
 
 ```
 MyDailySpace/
@@ -89,7 +89,8 @@ MyDailySpace/
     ├─ images/
  ├─ pom.xml (if using Maven) 
 ```
-🖼 PREVIEW
+
+## PREVIEW
 Here are some screenshots of the My Daily Space application in action:
 
  Login Page
