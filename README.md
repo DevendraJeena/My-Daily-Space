@@ -1,3 +1,4 @@
+
 # My Daily Space
 
 My Daily Space is a **web application** designed to help you stay organized and productive.
@@ -6,35 +7,59 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-##  Features
+## 🚀 Features
 
- **User Authentication**
+✅ **User Authentication**
 
 * User registration and login with password authentication.
 
- **Notes Module**
+✅ **Notes Module**
 
-* Add, view, and delete notes.
+* **Add, view, and delete notes.**
+* **Export Notes to PDF:**
 
- **Goals Module**
+  * Download **individual notes as PDF**
+  * Combine **multiple notes into a single PDF**
+  * Download **all notes at once in a PDF**
+    
 
-* Set goals and track their progress.
-
- **To-Do List**
-
-* Add, update, and delete daily tasks.
-
- **Reminders**
+ ✅ **Reminders**
 
 * Set short reminders for future tasks.
+* The application shows:
 
- **File Upload**
+  * **How soon:** “Coming soon in 6 minutes, 6 hours, or 6 days”
+  * **Whether deadline has gone or not**
+    
 
-* Upload files and documents for future reference.
+✅ **Goals Module**
 
- **Expense Manager**
+* Set goals with:
 
-* Keep a record of expenses and view total spending.
+  * **Priority:** high, medium, or low
+  * **Progress:** percentage of completion
+  * **Deadline:** track deadline for each goal
+    
+
+✅ **To-Do List**
+
+* Add, view, and delete tasks.
+* Set task **status:** Pending, Completed, or In Progress
+
+
+
+✅ **File Upload**
+
+* **Support for any file format (PDF, images, documents)**
+* File can be downloaded or viewed later directly from the application.
+
+✅ **Expense Manager**
+
+* Keep a record of expenses.
+* Filter transactions by criteria.
+* View total balance left or amount spent.
+* Display transactions in **chart form**.
+* **Export transactions to Excel** for further analysis.
 
 ---
 
@@ -49,7 +74,7 @@ The application is implemented using **JSP, Servlets, JDBC, MySQL, and MVC archi
 
 ---
 
-## Project Structure (MVC)
+## 🟣 Project Structure (MVC)
 
 ```
 MyDailySpace/
@@ -65,62 +90,13 @@ MyDailySpace/
  ├─ pom.xml (if using Maven) 
 ```
 
----
-
-##  Database Schema (MySQL)
-
-* **Users:** (id, username, email, password, …)
-* **Notes:** (note\_id, user\_id, title, content)
-* **Goals:** (goal\_id, user\_id, description, progress)
-* **To-Do:** (task\_id, user\_id, task, is\_done)
-* **Reminders:** (reminder\_id, user\_id, message, datetime)
-* **Files:** (file\_id, user\_id, file\_name, path)
-* **Expenses:** (expense\_id, user\_id, amount, description, date)
-
----
-
-##  Installation and Run
-
-1️⃣ **Clone this repository:**
-
-```bash
-git clone https://github.com/yourUsername/my-daily-space.git
-```
-
-2️⃣ **Import into IDE (Eclipse or IntelliJ)** — File > Import > Existing Project.
-
-3️⃣ **Create MySQL Database:**
-
-* Open MySQL and execute `schema.sql` (provided in the directory) or manually create the required tables.
-
-4️⃣ **Change Database credentials:**
-
-* Update `db.properties` or `DBUtil.java` with your MySQL credentials.
-
-5️⃣ **Deploy on Tomcat:**
-
-* Right-click on project > Run on Tomcat.
-
-6️⃣ Access the application at:
-
-```
-http://localhost:8080/my-daily-space/
-```
-
----
-
-##  Acknowledgements
-
-* **JSP, Servlets, JDBC, MySQL, Tomcat**
-* **MVC architecture to separate responsibilities**
-* **Eclipse / IntelliJ IDE**
-
----
 
 ## 📝 Notes
 
-* The application performs **CRUD operations** (Create, Retrieve, Update, Delete) on all modules.
+* The application performs **CRUD operations** on all modules.
 * User sessions are maintained upon login and destroyed upon logout.
+* **Export to PDF and Excel**, and **Chart view**, make it convenient to view and backup your data.
 
 ---
+
 
