@@ -89,6 +89,39 @@ MyDailySpace/
     ├─ images/
  ├─ pom.xml (if using Maven) 
 ```
+🖼 PREVIEW
+Here are some screenshots of the My Daily Space application in action:
+
+🔐 Login Page
+![Login](preview/login.png)
+
+🏠 Dashboard
+![Home](preview/home.png)
+
+📝 Notes Section
+![Notes](preview/notes.png)
+![Download Notes](preview/DownloadNotes.png)
+
+🔔 Reminders Section
+![Reminders](preview/reminder.png)
+![Add Reminder](preview/addReminder.png)
+
+💸 Expense Manager Section
+![Expenses](preview/expenses.png)
+![Expenses List](preview/expensesList.png)
+![Add Expense](preview/addExpense.png)
+![Download Expenses](preview/DownloadExpense.png)
+
+🥅 Goals Section
+![Goals](preview/goals.png)
+![Add Goals](preview/addGoals.png)
+
+✅ To-Do List Section
+![To-Do-List](preview/to-do-list.png)
+
+📁 File Upload Section
+![Upload File](preview/fileUpload.png)
+![View Files](preview/viewFiles.png)
 
 
 ## 📝 Notes
